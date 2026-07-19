@@ -53,7 +53,7 @@
   }
   nav{display:flex; align-items:center; justify-content:space-between; padding:18px 32px; max-width:1180px; margin:0 auto;}
   .logo-mark{height:81px;}
-  .nav-links{display:flex; gap:22px; align-items:center; font-weight:500; font-size:14px; color:var(--ink-soft); white-space:nowrap;}
+  .nav-links{display:flex; gap:16px; align-items:center; font-weight:500; font-size:13.5px; color:var(--ink-soft); white-space:nowrap;}
   .nav-links a:hover{color:var(--purple);}
   .nav-cta{display:flex; align-items:center; gap:12px;}
   .nav-cta .btn{white-space:nowrap; padding:12px 22px; font-size:14px;}
@@ -138,6 +138,7 @@
     display:none;
   }
   .conditional-block.show{display:block;}
+  .conditional-block.urgent-warn{background:#FBEAEA; border-left:4px solid #C0392B; color:#7A2318; font-size:14px; line-height:1.6;}
   .privacy-box{
     background:var(--lilac); border-left:4px solid var(--violet); border-radius:14px;
     padding:20px 22px; font-size:13px; color:var(--ink-soft); line-height:1.7; margin-top:8px;
@@ -164,7 +165,7 @@
       <a href="index.html#pillars">What We Do</a>
       <a href="index.html#impact">Impact</a>
       <a href="index.html#involved">Get Involved</a>
-      <a href="team.html">Our Team</a>
+      <a href="team.html">The Changemakers</a>
       <a href="governance.html">Governance</a>
     </div>
     <div class="nav-cta">
@@ -282,8 +283,11 @@
         <div class="form-block">
           <h3>Is This Urgent?</h3>
           <div class="radio-group">
-            <label class="radio-item"><input type="radio" name="urgent" value="Yes" required>Yes, I need support as soon as possible.</label>
-            <label class="radio-item"><input type="radio" name="urgent" value="No">No, this is a general enquiry.</label>
+            <label class="radio-item"><input type="radio" name="urgent" value="Yes" id="gs-urgent-yes" required>Yes, I need support as soon as possible.</label>
+            <label class="radio-item"><input type="radio" name="urgent" value="No" id="gs-urgent-no">No, this is a general enquiry.</label>
+          </div>
+          <div class="conditional-block urgent-warn" id="gs-urgent-details">
+            <strong>If you need immediate assistance, please call [ PSF crisis line &mdash; add number ].</strong> This form is not monitored in real time, so if you're in danger right now, call 000.
           </div>
         </div>
 
@@ -337,7 +341,7 @@
       <a href="index.html#mission">Mission</a>
       <a href="index.html#pillars">What We Do</a>
       <a href="index.html#impact">Impact</a>
-      <a href="team.html">Our Team</a>
+      <a href="team.html">The Changemakers</a>
       <a href="governance.html">Governance</a>
       <a href="get-support.html">Get Support</a>
       <a href="mailto:gigi@purpleshieldfoundation.org">Contact</a>
@@ -364,6 +368,17 @@
   }
   safeYes.addEventListener('change', toggleSafeDetails);
   safeNo.addEventListener('change', toggleSafeDetails);
+
+  // Toggle urgent-call disclaimer
+  var urgentYes = document.getElementById('gs-urgent-yes');
+  var urgentNo = document.getElementById('gs-urgent-no');
+  var urgentDetails = document.getElementById('gs-urgent-details');
+  function toggleUrgentDetails(){
+    if(urgentYes.checked){ urgentDetails.classList.add('show'); }
+    else{ urgentDetails.classList.remove('show'); }
+  }
+  urgentYes.addEventListener('change', toggleUrgentDetails);
+  urgentNo.addEventListener('change', toggleUrgentDetails);
 
   // PASTE YOUR "GET HELP" GOOGLE APPS SCRIPT WEB APP URL BELOW
   var GET_SUPPORT_ENDPOINT = "https://script.google.com/macros/s/AKfycbwLxnXzb_Zwdr2sZAavuYhMJ72ps7Pm8IkvfMNCVpwEgPqnqt9XydlCwJ1S-dX62U3B/exec";
