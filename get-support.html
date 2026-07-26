@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="hz:canvas-width" content="1600">
-<title>Purple Shield Foundation — Get Support</title>
+<title>Purple Shield Foundation: Get Support</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap');
   @import url('https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap');
@@ -163,7 +163,6 @@
     <div class="nav-links">
       <a href="index.html#mission">Mission</a>
       <a href="index.html#pillars">What We Do</a>
-      <a href="index.html#impact">Impact</a>
       <a href="index.html#involved">Get Involved</a>
       <a href="team.html">The Changemakers</a>
       <a href="governance.html">Governance</a>
@@ -340,7 +339,6 @@
     <div class="footer-links">
       <a href="index.html#mission">Mission</a>
       <a href="index.html#pillars">What We Do</a>
-      <a href="index.html#impact">Impact</a>
       <a href="team.html">The Changemakers</a>
       <a href="governance.html">Governance</a>
       <a href="get-support.html">Get Support</a>
@@ -397,7 +395,7 @@
     if(otherText){ formData.append('helpType', 'Other: ' + otherText); }
 
     if(GET_SUPPORT_ENDPOINT.indexOf('PASTE_') === 0){
-      gsStatus.textContent = 'Form is not yet connected — ask your site admin to finish setup.';
+      gsStatus.textContent = 'Form is not yet connected. Please ask your site admin to finish setup.';
       gsStatus.className = 'form-status error';
       return;
     }
@@ -411,7 +409,7 @@
       mode: 'no-cors',
       body: formData
     }).then(function(){
-      gsStatus.textContent = 'Thank you — your message has been sent. Someone from our team will be in touch.';
+      gsStatus.textContent = 'Thank you, your message has been sent. Someone from our team will be in touch.';
       gsStatus.className = 'form-status success';
       gsForm.reset();
       safeDetails.classList.remove('show');
